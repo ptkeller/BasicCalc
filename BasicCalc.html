@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+	<link href="calcStyle.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="resDisp" id="display">
+0
+</div>
+<div class="userIn">
+	<input id="val" value=0>
+</div>
+<button id="add">+</button>
+<button id="minus">-</button>
+<button id="multiply">x</button>
+<button id="divide">/</button>
+<button id="toThe">^</button>
+<button id="clearCalc">C</button>
+
+<script type="text/javascript">
+	var initial = 0;
+	var clearFocus = function(){
+		document.getElementById("val").value = 0;
+		document.getElementById("val").focus();
+	}
+	var clearAll = function(){
+		initial = 0;
+		document.getElementById("display").innerHTML = initial;
+	}
+	var add = function(){
+		initial = initial + parseInt(document.getElementById("val").value);
+		document.getElementById("display").innerHTML = initial;
+		clearFocus();
+		return initial;
+	};
+	var subtract = function(){
+		initial = initial - parseInt(document.getElementById("val").value);
+		document.getElementById("display").innerHTML = initial;
+		clearFocus();
+		return initial;
+	};
+	var multiply = function(){
+		initial = initial * parseInt(document.getElementById("val").value);
+		document.getElementById("display").innerHTML = initial;
+		clearFocus();
+		return initial;
+	};
+	var divide = function(){
+		initial = initial/parseInt(document.getElementById("val").value);
+		document.getElementById("display").innerHTML = initial;
+		clearFocus();
+		return initial;
+	};
+	var exponential = function(){
+		initial = Math.pow(initial, parseInt(document.getElementById("val").value));
+		document.getElementById("display").innerHTML = initial;
+		clearFocus();
+		return initial;
+	};
+	document.getElementById("add").onclick = add;
+	document.getElementById("minus").onclick = subtract;
+	document.getElementById("multiply").onclick = multiply;
+	document.getElementById("divide").onclick = divide;
+	document.getElementById("toThe").onclick = exponential;
+	document.getElementById("clearCalc").onclick = clearAll;
+
+</script>
+</body>
+</html>
